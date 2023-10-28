@@ -1,36 +1,65 @@
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
 
-        Student student1 = new Student("abiy", 2342,new int[] {68,67,88});
-        Student student2= new Student("elias", 2538,new int[] {77,89,98});
-        Teacher teacher1 = new Teacher("Mr.andamlak", "datastructure & algorithm");
-        Teacher teacher2 = new Teacher("Mr.ayele", "oodb");
-        College college = new College("CCI");
+        System.out.print("Enter college name: ");
+        String collegeName = scanner.nextLine();
 
+        System.out.print("Enter student name: ");
+        String studentName = scanner.nextLine();
 
-        college.addStudent(student1);
-        college.addTeacher(teacher1);
-        college.addTeacher(teacher2);
-        college.addStudent(student2);
+        System.out.print("Enter student ID: ");
+        int studentID = scanner.nextInt();
+
+        System.out.print("Enter number of grades: ");
+        int numGrades = scanner.nextInt();
+
+        int[] grades = new int[numGrades];
+        for (int i = 0; i < numGrades; i++) {
+            System.out.print("Enter grade " + (i+1) + ": ");
+            grades[i] = scanner.nextInt();
+        }
+
+        scanner.nextLine(); // consume the newline character
+//
+//        System.out.print("Enter student major: ");
+//        String  = scanner.nextLine();
+
+        System.out.print("Enter teacher name: ");
+        String teacherName = scanner.nextLine();
+
+        System.out.print("Enter teacher ID: ");
+        int teacherID = scanner.nextInt();
+
+        scanner.nextLine(); // consume the newline character
+
+        System.out.print("Enter teacher subject: ");
+        String subject = scanner.nextLine();
+
+        Student student = new Student(studentName, studentID, grades);
+        Teacher teacher = new Teacher(teacherName,subject);
+        College college = new College(collegeName);
+
+        college.addStudent(student);
+        college.addTeacher(teacher);
 
         System.out.println("College Name: " + college.getName());
 
-        System.out.print ("Student1 Name: " + college.getStudents().get(0).getName());
+        System.out.print ("Student Name: " + college.getStudents().get(0).getName());
         System.out.print(" ID: " + college.getStudents().get(0).getId());
         System.out.println(" grade: " + Arrays.toString(college.getStudents().get(0).getGrades()));
-        System.out.print("Student2 Name: " + college.getStudents().get(1).getName());
-        System.out.print("  ID: " + college.getStudents().get(1).getId());
-        System.out.println("Student2 grade: " + Arrays.toString(college.getStudents().get(1).getGrades()));
+      //  System.out.println("Major: " + college.getStudents().get(0).getMajor());
 
         System.out.println("Teacher Name: " + college.getTeachers().get(0).getName());
-        System.out.println("Teacher Name: " + college.getTeachers().get(1).getName());
-
-
-        System.out.println("subject Name: " + college.getTeachers().get(0).getSubject());
+       // System.out.println("ID: " + college.getTeachers().get(0).getId());
+  //      System.out.println("Department: " + college.getTeachers().get(0).getDepartment());
 
     }
 }
