@@ -7,7 +7,7 @@ public class Student {
 
 
 
-    public Student(String name, int id,int[] grades) {
+    public Student(String name, int id, int[] grades) {
         this.name = name;
         this.id = id;
         this.grades = grades;
@@ -38,5 +38,7 @@ public class Student {
     public void setGrades(int[] grades) {
         this.grades = grades;
     }
+
+
 }
 

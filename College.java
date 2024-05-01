@@ -19,6 +19,7 @@ public class College {
     }
 
     public String getName() {
+
         return name;
     }
 
